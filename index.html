@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#120d09">
+<meta name="description" content="Byte Bandits 3.0 — an invitation from the Department of Computer Science & Engineering.">
+<title>Byte Bandits 3.0 — The Invitation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IM+Fell+English:ital@0;1&family=Libre+Baskerville:wght@400;700&display=swap');
+*{box-sizing:border-box}
+:root{--ink:#2a170f;--gold:#c99a55;--cream:#e5c98f;--night:#090806;--paper:#d9bb7e}
+html,body{margin:0;min-height:100%;background:#090806;color:#ead6ad}
+body{font-family:"Libre Baskerville",serif;overflow-x:hidden}
+button{font:inherit}
+.screen{min-height:100svh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#start{background:radial-gradient(ellipse at 50% 120%,#26332d 0,#101714 30%,#080806 72%)}
+.ocean{position:absolute;inset:58% -10% -10%;background:repeating-linear-gradient(176deg,transparent 0 15px,#1d332f 16px 18px,transparent 19px 35px);opacity:.45;transform:skewY(-2deg)}
+.mist{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 62%,rgba(206,181,125,.12),transparent 38%),radial-gradient(ellipse at 20% 50%,rgba(255,255,255,.06),transparent 25%);filter:blur(10px)}
+.content{z-index:2;width:min(760px,90%);text-align:center}
+.eyebrow{font:600 11px Cinzel,serif;letter-spacing:4px;color:#c5a56e;text-transform:uppercase}
+h1{font:600 clamp(42px,11vw,88px) Cinzel,serif;line-height:.95;letter-spacing:2px;margin:18px 0 12px;color:#e7cc96;text-shadow:0 3px 20px #000}
+.quote{font:italic 20px "IM Fell English",serif;color:#d9c49b;line-height:1.55;margin:25px auto;max-width:520px}
+.goldline{width:180px;height:1px;background:linear-gradient(90deg,transparent,#b99151,transparent);margin:22px auto}
+.cta{border:1px solid #a9824b;background:rgba(16,12,8,.7);color:#e8cc94;padding:13px 22px;border-radius:2px;letter-spacing:2px;text-transform:uppercase;font:600 12px Cinzel,serif;box-shadow:0 10px 30px #0008;transition:.25s}
+.cta:hover{background:#2a1d12;transform:translateY(-2px)}
+.compass{width:130px;height:130px;margin:0 auto 10px;border:1px solid #8f7045;border-radius:50%;position:relative;opacity:.7;box-shadow:0 0 0 8px #17120d,0 0 0 9px #6e5434}
+.compass:before,.compass:after{content:"";position:absolute;left:50%;top:8px;bottom:8px;width:1px;background:#8f7045;transform:translateX(-50%)}.compass:after{transform:translateX(-50%) rotate(90deg)}
+.compass .needle{position:absolute;left:50%;top:50%;width:3px;height:90px;background:linear-gradient(#cda75e 50%,#5a4030 50%);transform:translate(-50%,-50%) rotate(38deg);transform-origin:center}
+.corner{position:absolute;color:#866b45;font:10px monospace;opacity:.5}.tl{top:18px;left:18px}.tr{top:18px;right:18px}.bl{bottom:18px;left:18px}.br{bottom:18px;right:18px}
+.hidden{display:none!important}
+#mapScreen{background:#14100b}
+.map{position:absolute;inset:-5%;background-color:#b99358;background-image:radial-gradient(circle at 15% 30%,#6e4a27 0 2px,transparent 3px),radial-gradient(circle at 75% 65%,#76502a 0 2px,transparent 3px),repeating-linear-gradient(15deg,rgba(75,45,20,.09) 0 2px,transparent 2px 17px);filter:sepia(.25)}
+.map:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 35%,rgba(44,23,11,.65) 100%);pointer-events:none}
+.map-title{position:relative;z-index:2;text-align:center;color:#402719;font:600 20px Cinzel,serif;letter-spacing:3px;padding-top:10vh}
+.route{position:absolute;z-index:2;width:72%;height:44%;left:14%;top:29%;border:3px dashed #7b2e1f;border-color:#7b2e1f transparent transparent #7b2e1f;border-radius:50%;transform:rotate(9deg);opacity:.8}
+.route:after{content:"";position:absolute;right:-5px;bottom:5px;width:25px;height:25px;border:5px solid #8c2d1f;border-radius:50%;box-shadow:0 0 0 2px #d1a86c}
+.map-label{position:absolute;z-index:3;color:#3e2718;font:600 13px "IM Fell English",serif;text-align:center}
+.startlabel{left:9%;top:58%}.destlabel{right:6%;bottom:23%;font-size:17px}
+.ship{position:absolute;z-index:3;left:16%;top:47%;font-size:42px;filter:sepia(.6);animation:sail 4s ease-in-out infinite}
+@keyframes sail{50%{transform:translate(35px,-5px) rotate(1deg)}}
+.x{position:absolute;z-index:4;right:10%;bottom:25%;font:700 60px "IM Fell English",serif;color:#7e261d;text-shadow:1px 2px 0 #d6b477;cursor:pointer;transition:.2s}
+.x:hover{transform:scale(1.1) rotate(-4deg)}
+.instruction{position:absolute;z-index:5;bottom:8%;left:0;right:0;text-align:center;color:#3d2518;font:600 12px Cinzel,serif;letter-spacing:2px}
+#scrollScreen{background:#090704;perspective:1000px}
+.table{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,#382415,#0b0806 65%);box-shadow:inset 0 0 140px #000}
+.candle{position:absolute;width:7px;height:55px;background:#d2b57b;bottom:13%;border-radius:2px;box-shadow:0 0 25px #d08a3d}.candle:after{content:"";position:absolute;left:50%;top:-24px;width:12px;height:26px;background:#e8b75a;border-radius:50% 50% 45% 45%;transform:translateX(-50%);filter:blur(2px)}
+.c1{left:12%}.c2{right:12%;bottom:22%}
+.scrollWrap{z-index:3;width:min(850px,94vw);position:relative;filter:drop-shadow(0 25px 35px #000)}
+.scrollRoll{position:absolute;left:-2%;right:-2%;top:0;height:28px;background:linear-gradient(#b58c52,#6e4827,#b58c52);border-radius:50%;z-index:3;box-shadow:0 5px 12px #000}
+.scrollRoll.bottom{top:auto;bottom:0}
+.paper{width:100%;background:#d8bb80;padding:12px;position:relative;transform-origin:top center;animation:unroll 1.8s cubic-bezier(.2,.8,.2,1) both;max-height:84svh;overflow:auto}
+.paper:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 18px,rgba(70,38,17,.035) 19px 20px);pointer-events:none}
+@keyframes unroll{from{transform:scaleY(.06);opacity:.4}to{transform:scaleY(1);opacity:1}}
+.paper img{display:block;width:100%;height:auto;position:relative}
+.finaltext{z-index:4;text-align:center;margin-top:20px;color:#e2cca2;font:italic 18px "IM Fell English",serif}
+.finaltext b{font-family:Cinzel,serif;font-style:normal;letter-spacing:2px}
+.seal{position:absolute;z-index:5;right:5%;bottom:8%;width:65px;height:65px;border-radius:50%;background:#751f1a;border:4px solid #9a5a3b;color:#e2b57c;display:grid;place-items:center;font:700 9px Cinzel,serif;box-shadow:0 4px 15px #000}
+.fade{animation:fade .9s ease both}@keyframes fade{from{opacity:0}to{opacity:1}}
+@media(max-width:600px){.quote{font-size:17px}.map-title{font-size:15px}.route{width:76%;left:10%}.destlabel{right:2%;font-size:14px}.x{right:5%;bottom:25%;font-size:48px}.paper{padding:7px}.scrollRoll{height:20px}.finaltext{font-size:15px}}
+</style>
+</head>
+<body>
+<section id="start" class="screen">
+<div class="ocean"></div><div class="mist"></div>
+<div class="corner tl">GOVT. POLYTECHNIC • BALANGIR</div><div class="corner tr">BYTE BANDITS • 3.0</div>
+<div class="content">
+<div class="compass"><div class="needle"></div></div>
+<div class="eyebrow">Department of Computer Science & Engineering</div>
+<h1>THE LOST<br>INVITATION</h1>
+<div class="goldline"></div>
+<div class="quote">“Not every journey begins with a destination.<br>Some begin with an invitation.”</div>
+<button class="cta" onclick="beginVoyage()">⚓ Begin the voyage</button>
+</div>
+</section>
+
+<section id="mapScreen" class="screen hidden">
+<div class="map"></div>
+<div class="map-title">THE JOURNEY TO THE INVITATION</div>
+<div class="ship">⛵</div>
+<div class="map-label startlabel">DEPARTURE<br>COMPUTER SCIENCE</div>
+<div class="route"></div>
+<div class="map-label destlabel">GOVERNMENT POLYTECHNIC<br>BALANGIR</div>
+<div class="x" onclick="findX()" aria-label="Tap the X">X</div>
+<div class="instruction" id="mapInstruction">THE MAP KNOWS THE WAY • TAP THE X</div>
+</section>
+
+<section id="scrollScreen" class="screen hidden">
+<div class="table"></div><div class="candle c1"></div><div class="candle c2"></div>
+<div class="scrollWrap fade">
+<div class="scrollRoll"></div>
+<div class="paper"><img src="invitation.png" alt="Byte Bandits 3.0 invitation card"></div>
+<div class="scrollRoll bottom"></div>
+<div class="seal">BYTE<br>BANDITS<br>3.0</div>
+</div>
+<div class="finaltext">You have found the invitation.<br><b>BYTE BANDITS 3.0</b></div>
+</section>
+
+<script>
+let audioCtx;
+function sound(type){
+  try{
+    audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
+    if(audioCtx.state==='suspended') audioCtx.resume();
+    const o=audioCtx.createOscillator(), g=audioCtx.createGain();
+    o.connect(g);g.connect(audioCtx.destination);let now=audioCtx.currentTime;
+    if(type==='click'){o.frequency.setValueAtTime(180,now);o.frequency.exponentialRampToValueAtTime(70,now+.18);g.gain.setValueAtTime(.0001,now);g.gain.exponentialRampToValueAtTime(.08,now+.01);g.gain.exponentialRampToValueAtTime(.0001,now+.22);o.start(now);o.stop(now+.23)}
+    if(type==='x'){o.type='triangle';o.frequency.setValueAtTime(240,now);o.frequency.exponentialRampToValueAtTime(520,now+.28);g.gain.setValueAtTime(.0001,now);g.gain.exponentialRampToValueAtTime(.07,now+.03);g.gain.exponentialRampToValueAtTime(.0001,now+.5);o.start(now);o.stop(now+.51)}
+  }catch(e){}
+}
+function swap(a,b){document.getElementById(a).classList.add('hidden');document.getElementById(b).classList.remove('hidden')}
+function beginVoyage(){sound('click');swap('start','mapScreen')}
+function findX(){sound('x');document.getElementById('mapInstruction').textContent='DESTINATION FOUND • OPENING THE INVITATION...';setTimeout(()=>swap('mapScreen','scrollScreen'),900)}
+</script>
+</body>
+</html>
